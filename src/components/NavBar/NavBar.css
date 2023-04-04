@@ -1,0 +1,27 @@
+.navigation {
+    display: flex;
+    background: #000;
+    min-height: 10vh;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    margin: 2rem;
+}
+
+a {
+    color: #FFAAA5;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: solid #FFAAA5 0.35rem;
+    border-radius: 2rem;
+    padding: 0.7rem;
+    background-color: #ffffff;
+}
+

@@ -1,0 +1,8 @@
+.UserSection {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background-color: #FFD3B6;
+    padding: 4rem;
+}
