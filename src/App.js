@@ -1,21 +1,48 @@
 import "./App.css";
 // COMPONENTS
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
 import CardUser from "./components/CardUser/CardUser";
 import Footer from "./components/Footer/Footer";
+// import CardList from "./components/CardList/CardList";
+import CardList from "./components/CardList/CardList";
+import DigiCard from "./components/DigiCard/DigiCard";
 // import { useState } from "react";
-
+import Spinner from "./components/Spinner/Spinner";
+import Person from "./components/Person/Person";
 
 function App() {
-    
+    //contador ejemplo del useState
     const [contador,setContador] = useState(0)
     
     const incrementar = () => {
       setContador(contador + 1)
       console.log(contador)
     }
+// probando una api de digimon
+    console.log(process.env.REACT_APP_API_KEY)
+    const [digis, setDigis] = useState([]);
+      
+    //oculta info sensible  
+    const API_KEY = process.env.REACT_APP_API_KEY //  
+    
+    useEffect(()=>{
+        setIsLoading(true)
+        fetch(`https://digimon-api.vercel.app/api/${API_KEY}`)
+            .then((response) => response.json())
+            .then((json) => setDigis(json));
+        
+            // setIsLoading(false)
+        setTimeout(() => {setIsLoading(false)
+        }, 500)
+        
+
+}, [API_KEY]);
+    //
+    //probando poner el spinner asincronico
+    const[isLoading, setIsLoading] = useState(false)
+
 
     return(
       <div>
@@ -47,11 +74,35 @@ function App() {
             img="https://i.imgur.com/KzU9AvR.png" 
           />
         </div>
+
         <div>
           <h3>La  cuenta es: {contador}</h3>
           <button onClick={incrementar}>INCREMENTAR</button>
         </div>
+        
+      <Person 
+        name={"Lautaro Bertera"}
+        age={32}
+        email={"tuhermana@gmail.com"}
+        isMarried={false}
+        children={["Guachin", "Lana"]}
+      />
+
         <Footer />
+        
+        {isLoading ? <Spinner/> :   <CardList/> }
+        
+      
+            
+        <div className="Cards-List">
+            {digis.map((digi) => {
+                return (
+                  <div key={digi.id}>
+                    <DigiCard datita={digi}/>
+                  </div>
+                );
+            })}
+        </div>
       </div>
   );
 }
