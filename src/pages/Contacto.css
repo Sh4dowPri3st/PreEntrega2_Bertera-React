@@ -1,0 +1,29 @@
+.form{
+    margin: 10rem;
+    text-align: center;
+    border: solid #FDFFAB 2rem;
+    border-radius: 4rem;
+    padding: 3rem;
+    background-color: #FFD3B6;
+
+}
+
+.marginnn{
+    margin: 1rem;
+    font-size: 3rem;
+
+}
+
+.jc{
+    justify-content: center;}
+
+.enviarDiv{
+    margin: 3rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;        
+    }
+
+.checkMargin{
+    margin: 1rem
+}

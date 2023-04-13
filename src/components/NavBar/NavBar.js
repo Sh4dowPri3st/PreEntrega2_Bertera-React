@@ -1,23 +1,25 @@
 import React from "react";
 import "./NavBar.css";
 import ShoppingCartCheckoutIcon from "../CartWidget/CartWidget" 
-
+import { Link } from "react-router-dom";
 const NavBar = () => {
     return (
         <nav className="Navigation">
-            <ul className="List-ul">
+            <ul className=" listas">
                 <li>
                     <h1>I N F L A C I O N </h1>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/inflacion.billeterasdepapel/" 
-                    >Home</a>
+                    <Link className="links" to={`/`}>Home</Link>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/inflacion.billeterasdepapel/">Nosotros</a>
+                    <Link className="links" to={`/Nosotros`}>Nosotros</Link>
                 </li>
+                {/* <li>
+                    <Link to={`/Productos`}>Productos</Link>
+                </li> */}
                 <li>
-                    <a href="https://www.instagram.com/inflacion.billeterasdepapel/">Contacto</a>
+                    <Link className="links" to={`/Contacto`}>Contacto</Link>
                 </li>
                 <li>
                     <ShoppingCartCheckoutIcon />

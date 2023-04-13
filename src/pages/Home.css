@@ -1,0 +1,15 @@
+.homeDiv{
+    width: 100%;
+    /* text-align:center; */
+    /* margin: 10rem; */
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    /* align-content: center; */
+    /* justify-items: center; */
+    align-items: center;
+    }
+
+.gifff{
+    margin: 5rem
+}

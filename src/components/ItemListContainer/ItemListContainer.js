@@ -1,15 +1,34 @@
-import React from 'react'
-import "./ItemListContainer.css";
-import img from "../logoFondoBlanco.png"
+import React, { useEffect, useState } from 'react'
+import CardUser from '../CardUser/CardUser'
+import "./ItemListContainer.css"
+import {Link} from "react-router-dom"
 
-const ItemListContainer = ({title}) => {
+const ItemListContainer = () => {
+    const [users, setUsers] = useState([])
+
+    useEffect(()=>{
+        fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>setUsers(json)
+        )
+    }, [])
+
+
     return (
-        <div className="contenedorHeader">
-            <img src={img} alt="logo" className="logo"/>
-            
-            <h3 className="titulo" > {title}</h3>
+        <div className='ItemList' >
+            <h1>PRODUCTOS: </h1>
+            {users.map((user)=>{
+            return(
+                <div key={(user.id)} > 
+                    <Link to={`/item/${user.id}`}>
+                        <CardUser data={user}/>
+                    </Link>
+                </div>
+                )
+            })}
         </div>
+
     )
-};
+}
 
 export default ItemListContainer
